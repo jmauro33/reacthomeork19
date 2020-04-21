@@ -1,8 +1,8 @@
 import React from "react";
-import employeeContainer from "./components/employeeContainer";
+import EmployeeContainer from "./components/employeeContainer";
 
 function App() {
-  return <employeeContainer />;
+  return <EmployeeContainer />;
 }
 
 export default App;

@@ -7,7 +7,7 @@ import SearchForm from "./SearchForm";
 import EmployeeDetail from "./EmployeeDetail";
 import API from "../utils/API";
 
-class employeeContainer extends Component {
+class EmployeeContainer extends Component {
   state = {
     result: {},
     search: ""
@@ -48,7 +48,9 @@ class employeeContainer extends Component {
             >
               {this.state.result.Title ? (
                 <EmployeeDetail
-                  title={this.state.result.Title}
+                  name={this.state.result.Name}
+                  src={this.state.result.Photo}
+                  position={this.state.result.Position}
                  
                 />
               ) : (
@@ -71,4 +73,4 @@ class employeeContainer extends Component {
   }
 }
 
-export default employeeContainer;
+export default EmployeeContainer;

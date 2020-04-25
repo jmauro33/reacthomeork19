@@ -49,6 +49,7 @@ class EmployeeContainer extends Component {
               {this.state.result.Title ? (
                 <EmployeeDetail
                   name={this.state.result.Name}
+                  DOB={this.state.result.DOB}
                   src={this.state.result.Photo}
                   position={this.state.result.Position}
                  

@@ -16,10 +16,12 @@ class EmployeeContainer extends Component {
 
  
   componentDidMount() {
-    this.searchEmployees("");
-    API.search().then(function(results){
+    //this.searchEmployees("");
+    API.search().then((results)=>{
       console.log(results);
-    });
+     this.setState({ result: results.data });
+      
+    }).catch(err => console.log(err));
   }
 
   searchEmployees = query => {
@@ -47,16 +49,15 @@ class EmployeeContainer extends Component {
       <Container>
         <Row>
           <Col size="md-8">
-            <Table/>
+            <Table employees = {this.state.result}/>
             <Card
               heading={this.state.result.Title || "Search for Employee to Begin"}
             >
               {this.state.result.Title ? (
                 <EmployeeDetail
+
                   name={this.state.result.Name}
-                  DOB={this.state.result.DOB}
-                  position={this.state.result.Position}
-                 
+                  email={this.state.result.Email}
                 />
               ) : (
                 <h3>No Results to Display</h3>

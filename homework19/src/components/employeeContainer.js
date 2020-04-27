@@ -6,6 +6,7 @@ import Card from "./Card";
 import SearchForm from "./SearchForm";
 import EmployeeDetail from "./EmployeeDetail";
 import API from "../utils/API";
+import Table from "./Table";
 
 class EmployeeContainer extends Component {
   state = {
@@ -16,6 +17,9 @@ class EmployeeContainer extends Component {
  
   componentDidMount() {
     this.searchEmployees("");
+    API.search().then(function(results){
+      console.log(results);
+    });
   }
 
   searchEmployees = query => {
@@ -43,6 +47,7 @@ class EmployeeContainer extends Component {
       <Container>
         <Row>
           <Col size="md-8">
+            <Table/>
             <Card
               heading={this.state.result.Title || "Search for Employee to Begin"}
             >
@@ -50,7 +55,6 @@ class EmployeeContainer extends Component {
                 <EmployeeDetail
                   name={this.state.result.Name}
                   DOB={this.state.result.DOB}
-                  src={this.state.result.Photo}
                   position={this.state.result.Position}
                  
                 />
